@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Aggiungi ordine</title>
+		<link th:href="@{css/style.css}" rel="stylesheet">
+	</head>
+	<body>
+	
+		<h1>Aggiungi ordine</h1>
+		
+		<a href = "/ordini">Torna alla tabella ordini</a>
+		<a href = "/">Torna alla Home</a>
+		
+		<form method="post" th:object="${ordine}">
+			<input type="number" th:field="*{utente.id}" placeholder="Utente" required>
+			<input type="text" th:field="*{indirizzo}" placeholder="Indirizzo" required>
+
+			<input type="submit" value="Salva">
+		</form>
+
+		<div th:if="${error}" class="error-message">
+    		<p th:text="${error}"></p>
+		</div>
+	</body>
+</html>

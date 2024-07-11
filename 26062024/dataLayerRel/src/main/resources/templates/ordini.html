@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Ordini</title>
+		<link th:href = "@{css/style.css}" rel = "stylesheet">
+	</head>
+	<body>
+	
+		<h1>Ordini</h1>
+		
+		<a href = "/formOrdine">Aggiungi ordini</a>
+		<a href = "/">Torna alla Home</a>
+		
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Nome Utente</th>
+				<th>Id Utente</th>
+				<th>Indirizzo</th>
+				<th>Opzioni</th>
+			</tr>
+			<tr th:each = "o : ${ordini}">
+				<td th:text = "${o.id}"></td>
+				<td th:text = "${o.utente.nome}"></td>
+				<td th:text = "${o.utente.id}"></td>
+				<td th:text = "${o.indirizzo}"></td>
+				<td>
+					<a th:href = "@{/formOrdine(id=${o.id})}">Modifica</a>
+					<a th:href = "@{/cancellaOrdine(id=${o.id})}">Cancella</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

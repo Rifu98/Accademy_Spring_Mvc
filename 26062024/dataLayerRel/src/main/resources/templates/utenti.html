@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Utenti</title>
+		<link th:href = "@{css/style.css}" rel = "stylesheet">
+	</head>
+	<body>
+	
+		<h1>Utenti</h1>
+		
+		<a href = "/formUtente">Aggiungi utente</a>
+		<a href = "/">Torna alla Home</a>
+		
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Nome</th>
+				<th>Opzioni</th>
+			</tr>
+			<tr th:each = "u : ${utenti}">
+				<td th:text = "${u.id}"></td>
+				<td th:text = "${u.nome}"></td>
+				<td>
+					<a th:href = "@{/formUtente(id=${u.id})}">Modifica</a>
+					<a th:href = "@{/cancellaUtente(id=${u.id})}">Cancella</a>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>

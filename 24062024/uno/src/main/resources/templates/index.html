@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text = "${title}"> </title>
+<link th:href = "@{css/style.css}" rel = "stylesheet">
+</head>
+<body>
+	<h1 th:text = "'benvenuto ' + ${name}"></h1>
+	<ul>
+		<li th:each = "a : ${catalogo}" th:text = "${a.id} + ' - ' + ${a.descrizione} + ' - ' + ${a.prezzo} + '€'"></li>
+	</ul>
+</body>
+</html>

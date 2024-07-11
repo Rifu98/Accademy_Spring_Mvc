@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>User registration</title>
+		<link th:href = "@{css/style.css}" rel = "stylesheet">
+	</head>
+	<body>
+		<form action="" method ="post" th:object = "${user}">
+			<label for = "name">Nome</label>
+			<p th:if = "${#fields.hasErrors('nome')}" th:errors = "*{nome}"></p>
+			<input type = "text" placeholder="Nome" th:field = "*{nome}" required>
+			<br>
+			<label for = "età">Età</label>
+			<p th:if = "${#fields.hasErrors('età')}" th:errors = "*{età}"></p>
+			<input type = "text" placeholder="Età" th:field = "*{età}" required>
+			<br>
+			<label for = "username">Username</label>
+			<p th:if = "${#fields.hasErrors('username')}" th:errors = "*{username}"></p>
+			<input type = "text" placeholder="Username" th:field = "*{username}" required>
+			<br>
+			<label for = "password">Password</label>
+			<p th:if = "${#fields.hasErrors('password')}" th:errors = "*{password}"></p>
+			<input type = "password" placeholder="Password" th:field = "*{password}" required>
+			<br>
+			<input type = "submit" value = "Registrati">
+		</form>
+		
+		<div th:if = "${errore}">
+			<h1>ERRORE</h1>
+		</div>
+	</body>
+</html>
